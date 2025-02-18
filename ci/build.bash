@@ -22,7 +22,9 @@ case "${UNAME}" in
   *) usage;;
 esac
 
-if [[ $# -eq 1 ]]; then
+if [[ $# -eq 0 ]]; then
+  MODE="Asan"
+elif [[ $# -eq 1 ]]; then
   MODE=$1
 elif [[ $# -eq 2 ]]; then
   TASK=$1
