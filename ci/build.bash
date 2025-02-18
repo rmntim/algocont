@@ -14,7 +14,13 @@ OUT=out
 CXX=$(which clang++)
 CXXFLAGS="-std=c++20 -Wall -Wextra -Wpedantic -Werror -g"
 CXXFLAGS_RELEASE="$CXXFLAGS -O3 -DNDEBUG"
-CXXFLAGS_ASAN="$CXXFLAGS -fsanitize=address,undefined,leak"
+
+UNAME="$(uname -s)"
+case "${UNAME}" in
+  Linux*) CXXFLAGS_ASAN="$CXXFLAGS -fsanitize=address,undefined,leak";;
+  Darwin*) CXXFLAGS_ASAN="$CXXFLAGS -fsanitize=address,undefined";;
+  *) usage;;
+esac
 
 if [[ $# -eq 1 ]]; then
   MODE=$1
