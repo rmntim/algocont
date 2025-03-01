@@ -2,3 +2,5 @@ InlayHints:
   Designators: No
   Enabled: No
   DeducedTypes: No
+CompileFlags:
+  Add: [-std=c++20]
