@@ -1,5 +1,6 @@
 #include <cstdint>
 #include <iostream>
+#include <queue>
 #include <vector>
 
 namespace {
